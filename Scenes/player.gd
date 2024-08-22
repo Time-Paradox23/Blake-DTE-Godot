@@ -11,7 +11,7 @@ var direction = Vector2.ZERO
 
 enum state {IDLE, LEFT, RIGHT}
 
-var anim_state = state.IDLE
+var anim_state = state.IDLE 
 
 @onready var animator = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer

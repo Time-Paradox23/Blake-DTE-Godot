@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://dkbfve7mnx64n"]
+[gd_scene load_steps=2 format=3 uid="uid://dkbfve7mnx64n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4xp1"]
 
 [node name="Zombie" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u4xp1")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
