@@ -44,7 +44,7 @@ _data = {
 "Spinning": SubResource("Animation_gfm8i")
 }
 
-[node name="Knife" type="Area2D"]
+[node name="Knife" type="Area2D" groups=["Weapon"]]
 script = ExtResource("1_6tgfo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

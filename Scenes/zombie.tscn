@@ -1,14 +1,77 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkbfve7mnx64n"]
+[gd_scene load_steps=10 format=3 uid="uid://dkbfve7mnx64n"]
+
+[ext_resource type="Texture2D" uid="uid://ch1mugex5edf" path="res://Zombie Apocalypse Tileset/Zombie Apocalypse Tileset/Big Zombie2.png" id="1_tfcts"]
+[ext_resource type="Script" path="res://Scenes/zombie.gd" id="1_u55gx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_627bt"]
+atlas = ExtResource("1_tfcts")
+region = Rect2(0, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j2ct"]
+atlas = ExtResource("1_tfcts")
+region = Rect2(51, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqryj"]
+atlas = ExtResource("1_tfcts")
+region = Rect2(0, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgvxm"]
+atlas = ExtResource("1_tfcts")
+region = Rect2(17, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1tnw"]
+atlas = ExtResource("1_tfcts")
+region = Rect2(34, 36, 16, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u4xp1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_627bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j2ct")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqryj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgvxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1tnw")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05hqr"]
+radius = 6.0
 
 [node name="Zombie" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_u55gx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_u4xp1")
+animation = &"Run"
+frame_progress = 0.212181
 
 [node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_05hqr")
+
+[node name="DamageTimer" type="Timer" parent="HurtBox" groups=["Enemy"]]

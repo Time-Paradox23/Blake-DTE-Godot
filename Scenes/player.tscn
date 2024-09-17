@@ -7,6 +7,11 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ephd1"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_6cbc6")
@@ -21,7 +26,7 @@ animations = [{
 "texture": ExtResource("7_jyn8t")
 }],
 "loop": true,
-"name": &"Right",
+"name": &"Walk",
 "speed": 4.0
 }]
 
@@ -144,14 +149,14 @@ _data = {
 "Up": SubResource("Animation_ftr5w")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(63, 37)
 script = ExtResource("1_gfle0")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ephd1")
-animation = &"Down"
-autoplay = "Right"
+animation = &"Walk"
+autoplay = "Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qeuaq")
