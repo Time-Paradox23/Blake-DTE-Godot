@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkbfve7mnx64n"]
+[gd_scene load_steps=11 format=3 uid="uid://dkbfve7mnx64n"]
 
 [ext_resource type="Texture2D" uid="uid://ch1mugex5edf" path="res://Zombie Apocalypse Tileset/Zombie Apocalypse Tileset/Big Zombie2.png" id="1_tfcts"]
 [ext_resource type="Script" path="res://Scenes/zombie.gd" id="1_u55gx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adkfd"]
+radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_627bt"]
 atlas = ExtResource("1_tfcts")
@@ -52,14 +55,16 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_05hqr"]
-radius = 6.0
+radius = 7.07107
 
-[node name="Zombie" type="CharacterBody2D"]
+[node name="Zombie" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_u55gx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_adkfd")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
@@ -74,4 +79,4 @@ collision_layer = 0
 position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_05hqr")
 
-[node name="DamageTimer" type="Timer" parent="HurtBox" groups=["Enemy"]]
+[node name="DamageTimer" type="Timer" parent="HurtBox"]

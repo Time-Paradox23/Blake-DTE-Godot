@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8ax6nhh18i2q"]
+
+[ext_resource type="Texture2D" uid="uid://dgbw5rjxrl16m" path="res://Zombie Apocalypse Tileset/Zombie Apocalypse Tileset/Zombie_death copy.png" id="1_bw80b"]
+[ext_resource type="Script" path="res://Scenes/enemy_death.gd" id="2_sagih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac3xw"]
+atlas = ExtResource("1_bw80b")
+region = Rect2(0, 0, 18, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rna25"]
+atlas = ExtResource("1_bw80b")
+region = Rect2(18, 0, 18, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chs17"]
+atlas = ExtResource("1_bw80b")
+region = Rect2(36, 0, 18, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7dm6"]
+atlas = ExtResource("1_bw80b")
+region = Rect2(54, 0, 18, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2shy"]
+atlas = ExtResource("1_bw80b")
+region = Rect2(72, 0, 18, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okq24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac3xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rna25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chs17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7dm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2shy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Enemy_Death" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_okq24")
+animation = &"new_animation"
+script = ExtResource("2_sagih")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

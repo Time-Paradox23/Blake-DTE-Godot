@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpj4uqwwe3qw"]
+[gd_scene load_steps=14 format=3 uid="uid://cpj4uqwwe3qw"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_gfle0"]
 [ext_resource type="Texture2D" uid="uid://dhyv2g4sqbwps" path="res://Zombie Apocalypse Tileset/Zombie Apocalypse Tileset/Organized separated sprites/Zombie-Tileset---_0479_Capa-480.png" id="5_6cbc6"]
@@ -149,6 +149,12 @@ _data = {
 "Up": SubResource("Animation_ftr5w")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j66rx"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gunk0"]
+bg_color = Color(0, 0.728061, 0.0638494, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(63, 37)
 script = ExtResource("1_gfle0")
@@ -169,5 +175,28 @@ libraries = {
 
 [node name="KnifeTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_j66rx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gunk0")
+value = 50.0
 
 [connection signal="timeout" from="KnifeTimer" to="." method="_on_knife_timer_timeout"]

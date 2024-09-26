@@ -9,7 +9,7 @@ const ZOMBIE = preload("res://Scenes/zombie.tscn")
 
 func spawn_enemy():
 	var enemy = ZOMBIE.instantiate()
-	var spawn_point = spawn_points.pick_random
+	var spawn_point = spawn_points.pick_random()
 	enemy.global_position = spawn_point.global_position
 	world.add_child(enemy)
 
