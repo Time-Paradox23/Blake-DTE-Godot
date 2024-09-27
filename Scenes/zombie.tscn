@@ -80,3 +80,5 @@ position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_05hqr")
 
 [node name="DamageTimer" type="Timer" parent="HurtBox"]
+wait_time = 0.4
+one_shot = true

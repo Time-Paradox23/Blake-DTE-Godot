@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Title.gd" id="1_5ybga"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Title" type="Node2D"]
 script = ExtResource("1_5ybga")
 
 [node name="Start" type="Panel" parent="."]

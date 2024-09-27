@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://copn0dud41cq1"]
+
+[ext_resource type="Script" path="res://Scenes/death_screen.gd" id="1_8rue7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xh4oc"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdprb"]
+font_size = 32
+
+[node name="Death Screen" type="Node2D"]
+script = ExtResource("1_8rue7")
+
+[node name="EndScreen" type="Sprite2D" parent="."]
+
+[node name="Restart" type="Panel" parent="."]
+offset_left = -252.0
+offset_top = -97.0
+offset_right = 252.0
+offset_bottom = -2.0
+
+[node name="RestartButton" type="Sprite2D" parent="Restart"]
+
+[node name="Label" type="Label" parent="Restart"]
+layout_mode = 0
+offset_right = 506.0
+offset_bottom = 99.0
+text = "RESTART"
+label_settings = SubResource("LabelSettings_xh4oc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Panel" parent="."]
+offset_left = -211.0
+offset_top = 51.0
+offset_right = 215.0
+offset_bottom = 103.0
+
+[node name="QuitButton" type="Sprite2D" parent="Quit"]
+
+[node name="Label" type="Label" parent="Quit"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 426.0
+offset_bottom = 51.0
+text = "QUIT"
+label_settings = SubResource("LabelSettings_mdprb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[connection signal="gui_input" from="Restart" to="." method="_on_restart_gui_input"]
+[connection signal="gui_input" from="Quit" to="." method="_on_quit_gui_input"]
