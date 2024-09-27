@@ -1199,7 +1199,6 @@ position = Vector2(-223, 136)
 zoom = Vector2(4, 4)
 
 [node name="EnemySpawner" type="Node2D" parent="Camera"]
-visible = false
 script = ExtResource("3_6oktd")
 
 [node name="SpawnPoints" type="Node2D" parent="Camera/EnemySpawner"]
