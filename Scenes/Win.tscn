@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://br0m22bnkfpwh"]
+
+[ext_resource type="Script" path="res://Scenes/Title.gd" id="1_ojisc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ck7nn"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_2r3gs"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_v016x"]
+font_size = 52
+
+[node name="Win Screen" type="Node2D"]
+script = ExtResource("1_ojisc")
+
+[node name="Restart" type="Panel" parent="."]
+offset_left = -163.0
+offset_top = -13.0
+offset_right = 161.0
+offset_bottom = 49.0
+
+[node name="RestartButton" type="Sprite2D" parent="Restart"]
+
+[node name="Label" type="Label" parent="Restart"]
+layout_mode = 0
+offset_right = 323.0
+offset_bottom = 62.0
+text = "RESTART"
+label_settings = SubResource("LabelSettings_ck7nn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Panel" parent="."]
+offset_left = -163.0
+offset_top = 63.0
+offset_right = 164.0
+offset_bottom = 103.0
+
+[node name="QuitButton" type="Sprite2D" parent="Quit"]
+
+[node name="Label" type="Label" parent="Quit"]
+layout_mode = 0
+offset_right = 326.0
+offset_bottom = 40.0
+text = "QUIT"
+label_settings = SubResource("LabelSettings_2r3gs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -229.0
+offset_top = -125.0
+offset_right = 217.0
+offset_bottom = -34.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 443.0
+offset_bottom = 90.0
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_v016x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Sprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Title"]
+zoom = Vector2(2, 2)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]

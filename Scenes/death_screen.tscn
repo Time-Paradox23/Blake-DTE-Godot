@@ -1,58 +1,84 @@
-[gd_scene load_steps=4 format=3 uid="uid://copn0dud41cq1"]
+[gd_scene load_steps=5 format=3 uid="uid://copn0dud41cq1"]
 
 [ext_resource type="Script" path="res://Scenes/death_screen.gd" id="1_8rue7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xh4oc"]
-font_size = 50
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_mdprb"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_emmui"]
+font_size = 81
 
 [node name="Death Screen" type="Node2D"]
 script = ExtResource("1_8rue7")
 
 [node name="EndScreen" type="Sprite2D" parent="."]
 
-[node name="Restart" type="Panel" parent="."]
-offset_left = -252.0
-offset_top = -97.0
-offset_right = 252.0
-offset_bottom = -2.0
+[node name="Return" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -41.0
+offset_right = 230.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="RestartButton" type="Sprite2D" parent="Restart"]
+[node name="ReturnButton" type="Sprite2D" parent="Return"]
 
-[node name="Label" type="Label" parent="Restart"]
+[node name="Label" type="Label" parent="Return"]
 layout_mode = 0
-offset_right = 506.0
-offset_bottom = 99.0
+offset_left = 25.0
+offset_top = 4.0
+offset_right = 412.0
+offset_bottom = 103.0
 text = "RESTART"
 label_settings = SubResource("LabelSettings_xh4oc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Quit" type="Panel" parent="."]
-offset_left = -211.0
-offset_top = 51.0
-offset_right = 215.0
-offset_bottom = 103.0
+offset_left = -243.0
+offset_top = 119.0
+offset_right = 236.0
+offset_bottom = 257.0
 
 [node name="QuitButton" type="Sprite2D" parent="Quit"]
 
 [node name="Label" type="Label" parent="Quit"]
 layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 426.0
-offset_bottom = 51.0
+offset_left = -23.0
+offset_top = 11.0
+offset_right = 461.0
+offset_bottom = 132.0
 text = "QUIT"
 label_settings = SubResource("LabelSettings_mdprb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -253.0
+offset_top = -274.0
+offset_right = 252.0
+offset_bottom = -169.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 505.0
+offset_bottom = 106.0
+text = "YOU DIED!"
+label_settings = SubResource("LabelSettings_emmui")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
-[connection signal="gui_input" from="Restart" to="." method="_on_restart_gui_input"]
+[connection signal="gui_input" from="Return" to="." method="_on_return_gui_input"]
 [connection signal="gui_input" from="Quit" to="." method="_on_quit_gui_input"]

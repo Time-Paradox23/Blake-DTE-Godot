@@ -41,3 +41,4 @@ func take_damage(dmg):
 		var new_death = DEATH.instantiate()
 		new_death.global_position = global_position
 		add_sibling(new_death)
+		
